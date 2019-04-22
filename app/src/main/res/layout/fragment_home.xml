@@ -32,12 +32,11 @@
                     android:textSize="32dp"
                     android:textStyle="bold" />
 
-
             </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@android:color/white"
                 android:orientation="vertical">
@@ -53,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="10"
-                        android:text="News"
+                        android:text="Berita"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
@@ -62,22 +61,38 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="See more"
+                        android:text="Lihat semua"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <ViewFlipper
-                    android:id="@+id/slideshowphoto"
+                <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include android:id="@+id/berita"
+                            layout="@layout/card_news" />
+
+                        <include layout="@layout/card_news" />
+
+                        <include layout="@layout/card_news" />
+
+                        <include layout="@layout/card_news" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@android:color/white"
                 android:orientation="vertical">
@@ -93,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="10"
-                        android:text="Category"
+                        android:text="Kategori"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
@@ -102,104 +117,95 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="See more"
+                        android:text="Lihat semua"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
                             <ImageButton
                                 android:layout_width="60dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="60dp"
                                 android:layout_gravity="center"
-                                android:layout_weight="3"
-                                android:backgroundTint="@color/colorPrimary" />
+                                android:background="@drawable/grandparents" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Diabetes"
+                                android:text="Panti Jompo"
                                 android:textAlignment="center" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
                             <ImageButton
                                 android:layout_width="60dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="60dp"
                                 android:layout_gravity="center"
-                                android:layout_weight="3"
-                                android:backgroundTint="@color/colorPrimary" />
+                                android:background="@drawable/panti" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Diabetes"
+                                android:text="Panti Asuhan"
                                 android:textAlignment="center" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
                             <ImageButton
                                 android:layout_width="60dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="60dp"
                                 android:layout_gravity="center"
-                                android:layout_weight="3"
-                                android:backgroundTint="@color/colorPrimary" />
+                                android:background="@drawable/teamwork" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Diabetes"
+                                android:text="Komunitas"
                                 android:textAlignment="center" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical">
 
                             <ImageButton
                                 android:layout_width="60dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="60dp"
                                 android:layout_gravity="center"
-                                android:layout_weight="3"
-                                android:backgroundTint="@color/colorPrimary" />
+                                android:background="@drawable/istanbul" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Diabetes"
+                                android:text="Masjid"
                                 android:textAlignment="center" />
                         </LinearLayout>
 
@@ -207,14 +213,13 @@
                     </LinearLayout>
 
 
-
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@android:color/white"
                 android:orientation="vertical">
@@ -239,13 +244,14 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="See more"
+                        android:text="Lihat semua"
                         android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
+                    android:layout_marginHorizontal="8dp"
                     android:layout_height="match_parent">
 
                     <LinearLayout
@@ -254,11 +260,18 @@
                         android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
+                        <include layout="@layout/card_lokasi"/>
+
+                        <include layout="@layout/card_lokasi"/>
+
+                        <include layout="@layout/card_lokasi"/>
+
+                        <include layout="@layout/card_lokasi"/>
+
+
                     </LinearLayout>
                 </HorizontalScrollView>
-
             </LinearLayout>
-
 
         </LinearLayout>
     </ScrollView>

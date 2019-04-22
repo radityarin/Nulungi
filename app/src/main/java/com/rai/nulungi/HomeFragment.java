@@ -1,7 +1,10 @@
 package com.rai.nulungi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,27 +25,18 @@ public class HomeFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-//        int images [] = {R.drawable.testslidephoto,R.drawable.testslidephoto,R.drawable.testslidephoto};
-//
-//        viewFlipper = view.findViewById(R.id.slideshowphoto);
-//
-//        for (int image: images){
-//            flipperImages(image);
-//        }
+        CardView cvasd = view.findViewById(R.id.cardnews);
+        cvasd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new
+                        Intent(getContext(),BeritaPage.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
 
-    public void flipperImages(int image){
-        ImageView imageView = new ImageView(getContext());
-        imageView.setBackgroundResource(image);
-
-        viewFlipper.addView(imageView);
-        viewFlipper.setFlipInterval(3000);
-        viewFlipper.setAutoStart(true);
-
-        viewFlipper.setInAnimation(getContext(),android.R.anim.slide_in_left);
-        viewFlipper.setOutAnimation(getContext(),android.R.anim.slide_out_right);
-    }
 
 }
