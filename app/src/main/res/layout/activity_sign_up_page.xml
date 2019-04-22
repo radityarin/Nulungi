@@ -25,6 +25,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/nama"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@drawable/buttonborder"
@@ -32,6 +33,7 @@
             android:paddingHorizontal="16dp" />
 
         <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
@@ -41,6 +43,7 @@
             android:paddingHorizontal="16dp" />
 
         <EditText
+            android:id="@+id/noKtp"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
@@ -50,6 +53,7 @@
             android:paddingHorizontal="16dp" />
 
         <EditText
+            android:id="@+id/noHp"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:inputType="number"
@@ -59,6 +63,7 @@
             android:paddingHorizontal="16dp" />
 
         <EditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="16dp"
@@ -76,7 +81,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/buttonlogin"
+            android:id="@+id/tomboldaftar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
@@ -87,6 +92,7 @@
             android:textSize="24dp" />
 
         <Button
+            android:id="@+id/masuk"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttonlogin"

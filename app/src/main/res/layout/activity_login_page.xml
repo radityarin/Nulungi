@@ -32,6 +32,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/emaillogin"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@drawable/buttonborder"
@@ -39,11 +40,13 @@
             android:paddingHorizontal="16dp" />
 
         <EditText
+            android:id="@+id/passwordlogin"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/buttonborder"
             android:hint="Password"
+            android:inputType="textPassword"
             android:paddingHorizontal="16dp" />
 
         <Button
@@ -74,6 +77,7 @@
             android:textSize="24dp" />
 
         <Button
+            android:id="@+id/daftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttonlogin"
