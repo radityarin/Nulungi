@@ -93,7 +93,7 @@
             android:textSize="16dp"
             android:background="@color/Transparent"
             android:textColor="@android:color/white"
-            android:text="Sudah memiliki akun? Login disini"
+            android:text="Sudah memiliki akun? Masuk disini"
             android:textAllCaps="false" />
     </LinearLayout>
 </RelativeLayout>
