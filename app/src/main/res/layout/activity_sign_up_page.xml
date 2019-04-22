@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gambar0201"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    tools:context=".SignUpPage">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Sign Up"
+        android:textColor="@android:color/black"
+        android:textSize="48dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/buttonborder"
+            android:hint="Nama"
+            android:paddingHorizontal="16dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/buttonborder"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingHorizontal="16dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/buttonborder"
+            android:inputType="number"
+            android:hint="No KTP"
+            android:paddingHorizontal="16dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:inputType="number"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/buttonborder"
+            android:hint="No HP"
+            android:paddingHorizontal="16dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/buttonborder"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingHorizontal="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonlogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttonborder"
+            android:text="Daftar"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="24dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonlogin"
+            android:textSize="16dp"
+            android:background="@color/Transparent"
+            android:textColor="@android:color/white"
+            android:text="Sudah memiliki akun? Daftar disini"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</RelativeLayout>
