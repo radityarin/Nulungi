@@ -32,14 +32,6 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-//        login = findViewById(R.id.buttonlogin);
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(LoginPage.this,MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
         inputEmail = findViewById(R.id.emaillogin);
         inputPassword = findViewById(R.id.passwordlogin);
         btnMasuk = findViewById(R.id.buttonlogin);
