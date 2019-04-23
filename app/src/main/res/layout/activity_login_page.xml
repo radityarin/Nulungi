@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign In"
+            android:text="Masuk"
             android:layout_marginBottom="32dp"
             android:textColor="@android:color/black"
             android:textSize="48dp"
