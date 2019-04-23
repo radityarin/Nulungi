@@ -22,12 +22,12 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/ngobattitle"
+                    android:id="@+id/title"
                     android:layout_width="374dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="32dp"
-                    android:text="Home"
+                    android:text="Beranda"
                     android:textColor="@android:color/black"
                     android:textSize="32dp"
                     android:textStyle="bold" />
@@ -159,6 +159,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/pantiasuhanbutton"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -211,7 +212,6 @@
 
 
                     </LinearLayout>
-
 
                 </LinearLayout>
 

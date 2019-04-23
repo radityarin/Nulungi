@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BeritaPage"></activity>
+        <activity android:name=".ListPerKategoriPage"></activity>
+        <activity android:name=".BeritaPage" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".LoginPage" />
         <activity android:name=".LandingPage" />

@@ -8,8 +8,11 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ViewFlipper;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -31,6 +34,15 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new
                         Intent(getContext(),BeritaPage.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton btn_pantiasuhan = view.findViewById(R.id.pantiasuhanbutton);
+        btn_pantiasuhan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ListPerKategoriPage.class);
                 startActivity(intent);
             }
         });
