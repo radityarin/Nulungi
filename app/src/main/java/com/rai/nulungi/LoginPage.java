@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginPage extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
-    private Button btnMasuk;
+    private Button btnMasuk, btnBack;
 
 //    Button login;
 
@@ -31,6 +31,14 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+
+        btnBack = findViewById(R.id.backbutton);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginPage.this, MainActivity.class));
+            }
+        });
 
         inputEmail = findViewById(R.id.emaillogin);
         inputPassword = findViewById(R.id.passwordlogin);

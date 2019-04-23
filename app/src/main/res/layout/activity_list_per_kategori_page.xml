@@ -21,17 +21,27 @@
             android:layout_marginHorizontal="8dp"
             android:backgroundTint="@color/colorPrimary" />
 
-        <EditText
-            android:layout_margin="4dp"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/buttonborder"
-            android:drawableRight="@drawable/ic_search_grey_24dp"
-            android:drawableTint="@color/colorPrimary"
-            android:paddingHorizontal="8dp"
-            android:hint="Cari Panti Asuhan...."/>
+            android:textColor="@color/colorPrimary"
+            android:gravity="center_vertical"
+            android:textSize="24dp"
+            android:text="Panti Asuhan"/>
 
     </LinearLayout>
+
+
+    <EditText
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonborder"
+        android:drawableRight="@drawable/ic_search_grey_24dp"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingHorizontal="8dp"
+        android:hint="Cari Panti Asuhan...."/>
+
 
     <ScrollView
         android:layout_width="match_parent"
