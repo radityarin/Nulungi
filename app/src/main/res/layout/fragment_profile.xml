@@ -74,6 +74,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/namaprofile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="64dp"
@@ -173,11 +174,12 @@
                         android:text="Email" />
 
                     <TextView
+                        android:id="@+id/emailprofile"
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="radityarin@gmail.com" />
+                        android:text="None" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -189,14 +191,15 @@
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tanggal lahir" />
+                        android:text="No KTP" />
 
                     <TextView
+                        android:id="@+id/noktpprofile"
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="26 Juni 1999" />
+                        android:text="None" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -249,11 +252,12 @@
                         android:text="Nomor telepon" />
 
                     <TextView
+                        android:id="@+id/nohpprofile"
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:text="+6281316524040" />
+                        android:text="None" />
 
 
                 </LinearLayout>
