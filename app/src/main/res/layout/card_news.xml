@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardnews"
     android:layout_marginVertical="8dp"
-    android:layout_width="350dp"
+    android:layout_width="match_parent"
     android:layout_height="220dp"
     android:elevation="0dp"
     android:layout_marginHorizontal="8dp"

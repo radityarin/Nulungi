@@ -23,14 +23,15 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/ic_arrow_back_black_24dp" />
+                android:background="@drawable/ic_chevron_left_black_24dp"
+                android:backgroundTint="@android:color/white"/>
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/urlgambarinformasi"
+                    android:id="@+id/urltempat"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:scaleType="centerCrop"
@@ -46,7 +47,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/judulinformasi"
+            android:id="@+id/namatempat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -58,7 +59,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/isiinformasi"
+            android:id="@+id/alamattempat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_location_on_black_24dp"
@@ -71,6 +72,7 @@
             android:textSize="16dp" />
 
         <TextView
+            android:id="@+id/notelepon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -83,18 +85,18 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:text="Barang yang diperlukan"
-            android:textColor="@android:color/black"
-            android:textSize="24dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="0.5dp"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/darker_gray"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:text="Barang yang diperlukan"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -105,8 +107,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingHorizontal="16dp"
                 android:layout_weight="2"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="Furnitur"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
@@ -118,7 +121,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="3"
                 android:background="@drawable/buttonsolid"
-                android:text="Sumbang"
+                android:text="Donasi"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16dp" />
@@ -134,7 +137,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:gravity="center_vertical"
                 android:text="Pakaian"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
@@ -146,7 +150,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="3"
                 android:background="@drawable/buttonsolid"
-                android:text="Sumbang"
+                android:text="Donasi"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16dp" />
@@ -162,7 +166,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:gravity="center"
+                android:paddingHorizontal="16dp"
+                android:gravity="center_vertical"
                 android:text="Elektronik"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
@@ -174,7 +179,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="3"
                 android:background="@drawable/buttonsolid"
-                android:text="Sumbang"
+                android:text="Donasi"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16dp" />
@@ -190,7 +195,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:gravity="center"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
                 android:text="Buku"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
@@ -202,7 +208,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_weight="3"
                 android:background="@drawable/buttonsolid"
-                android:text="Sumbang"
+                android:text="Donasi"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16dp" />

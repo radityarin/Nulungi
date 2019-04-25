@@ -34,6 +34,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -44,9 +45,10 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
     private Button btnkonfirmasi;
 
     private final int PICK_IMAGE_REQUEST = 1;
-    private String nama,kategori,metode,urlbarang,namatempat,alamattempat;
+    private String nama,kategori,metode,urlbarang,namatempat,alamattempat,kordinat;
     String tanggaldonasi ="";
     private ImageView uploadfotoproduk;
+    private int jumlah=0;
     private FirebaseAuth auth;
     private TextView tvnamabarang,tvmetode, tvnamatempat,tvalamattempat;
     private StorageReference imageStorage;
@@ -57,9 +59,32 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rincian_page);
 
+        final ArrayList<Tempat> listtempat = new ArrayList<>();
+
+        FirebaseDatabase database1 = FirebaseDatabase.getInstance();
+        DatabaseReference myRef1 = database1.getReference("tempat");
+
+
+//        String angka = tvnitip.getText().toString();
+//        jumlah = Integer.parseInt(tvnitip.getText().toString());
+
+        Button btnBack = findViewById(R.id.backbutton);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RincianPage.this, SumbangPage.class));
+            }
+        });
+
+        namatempat="";
+        alamattempat="";
+        kordinat="";
+
         nama = getIntent().getStringExtra("nama");
         kategori = getIntent().getStringExtra("kategori");
         metode = getIntent().getStringExtra("metode");
+        namatempat = getIntent().getStringExtra("namatempat");
+        alamattempat = getIntent().getStringExtra("alamattempat");
 
         tvnamabarang = findViewById(R.id.namabarang);
         tvmetode = findViewById(R.id.metodebarang);
@@ -78,20 +103,35 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
             }
         });
 
-        String random = String.valueOf((int) (Math.random()*13)+1);
+        tvnamatempat.setText(namatempat);
+        tvalamattempat.setText(alamattempat);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("tempat").child(random);
-
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Tempat tempat = dataSnapshot.getValue(Tempat.class);
-                tvnamatempat.setText(tempat.getNama());
-                tvalamattempat.setText(tempat.getAlamat());
-                namatempat = tempat.getNama();
-            }
+                if(tvnamatempat.getText().equals("")) {
+                    String random = String.valueOf((int) (Math.random() * dataSnapshot.getChildrenCount()) + 1);
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("tempat").child(random);
 
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Tempat tempat = dataSnapshot.getValue(Tempat.class);
+                            tvnamatempat.setText(tempat.getNama());
+                            tvalamattempat.setText(tempat.getAlamat());
+                            namatempat = tempat.getNama();
+                            kordinat = tempat.getKordinat();
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+                            // Failed to read value
+                            Log.w(TAG, "Failed to read value.", error.toException());
+                        }
+                    });
+                }
+            }
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
@@ -99,10 +139,12 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
             }
         });
 
+
+
         imageStorage = FirebaseStorage.getInstance().getReference();
         auth = FirebaseAuth.getInstance();
-        namatempat = "";
-        alamattempat = "";
+//        namatempat = "";
+//        alamattempat = "";
 
         uploadfotoproduk = (ImageView) findViewById(R.id.uploadfotoproduk);
         uploadfotoproduk.setOnClickListener(new View.OnClickListener() {
@@ -171,9 +213,12 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             PD.dismiss();
+                                            alamattempat = tvalamattempat.getText().toString();
                                             Intent intent = new Intent(RincianPage.this, KonfirmasiPage.class);
                                             intent.putExtra("metode",metode);
                                             intent.putExtra("alamat",alamattempat);
+                                            intent.putExtra("kordinat",kordinat);
+                                            intent.putExtra("tanggal",tanggaldonasi);
                                             startActivity(intent);
                                             finish();
                                         } else {

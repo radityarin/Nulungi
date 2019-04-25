@@ -174,7 +174,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="10"
-                        android:text="Berita"
+                        android:text="Lokasi Terdekat"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
@@ -188,15 +188,15 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
+
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recycler_view"
+                    android:id="@+id/recycler_view_lokasi"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                 </android.support.v7.widget.RecyclerView>
-
             </LinearLayout>
 
 
@@ -341,7 +341,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="10"
-                        android:text="Lokasi Terdekat"
+                        android:text="Berita"
                         android:textSize="20dp"
                         android:textStyle="bold" />
 
@@ -355,28 +355,18 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <HorizontalScrollView
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="8dp"
-                        android:orientation="horizontal">
+                </android.support.v7.widget.RecyclerView>
 
-                        <include layout="@layout/card_lokasi"/>
-
-                        <include layout="@layout/card_lokasi"/>
-
-                        <include layout="@layout/card_lokasi"/>
-
-                        <include layout="@layout/card_lokasi"/>
-
-
-                    </LinearLayout>
-                </HorizontalScrollView>
             </LinearLayout>
+
+
 
         </LinearLayout>
     </ScrollView>

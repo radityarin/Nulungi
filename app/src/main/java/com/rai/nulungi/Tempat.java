@@ -1,22 +1,20 @@
 package com.rai.nulungi;
 
 public class Tempat {
-<<<<<<< HEAD
-    private String alamat, kategori, nama, notelepon, urlfoto;
+    private String alamat, kategori, nama, notelepon, urlfoto, kebutuhan, kordinat;
 
     public Tempat(){
 
     }
-=======
-    private String alamat,kategori,nama,notelepon,urlfoto;
->>>>>>> 9a62ef2f7c7891ce9048e195c46c2df3418955ea
 
-    public Tempat(String alamat, String kategori, String nama, String notelepon, String urlfoto) {
+    public Tempat(String alamat, String kategori, String nama, String notelepon, String urlfoto, String kebutuhan, String kordinat) {
         this.alamat = alamat;
         this.kategori = kategori;
         this.nama = nama;
         this.notelepon = notelepon;
         this.urlfoto = urlfoto;
+        this.kebutuhan = kebutuhan;
+        this.kordinat = kordinat;
     }
 
     public String getAlamat() {
@@ -37,5 +35,13 @@ public class Tempat {
 
     public String getUrlfoto() {
         return urlfoto;
+    }
+
+    public String getKebutuhan() {
+        return kebutuhan;
+    }
+
+    public String getKordinat() {
+        return kordinat;
     }
 }

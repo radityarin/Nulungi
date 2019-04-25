@@ -7,6 +7,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,18 @@ import android.widget.ViewFlipper;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 public class HomeFragment extends Fragment {
 
@@ -43,6 +50,29 @@ public class HomeFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        final ArrayList<Tempat> listtempat = new ArrayList<>();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("tempat");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dt : dataSnapshot.getChildren()) {
+                    Tempat mLokasi = dt.getValue(Tempat.class);
+                    listtempat.add(mLokasi);
+                }
+
+                RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_lokasi);
+                recyclerView.setAdapter(new AdapterLokasi(listtempat, getContext()));
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
         ImageButton btn_furnitur, btn_pakaian, btn_elektronik, btn_buku;
         btn_furnitur = view.findViewById(R.id.btnfurnitur);
         btn_pakaian = view.findViewById(R.id.btnpakaian);
@@ -52,7 +82,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),ListPerKebutuhan.class);
-                intent.putExtra("barang","furnitur");
+                intent.putExtra("barang","Furnitur");
                 startActivity(intent);
             }
         });
@@ -60,7 +90,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),ListPerKebutuhan.class);
-                intent.putExtra("barang","pakaian");
+                intent.putExtra("barang","Pakaian");
                 startActivity(intent);
             }
         });
@@ -69,7 +99,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),ListPerKebutuhan.class);
-                intent.putExtra("barang","elektronik");
+                intent.putExtra("barang","Elektronik");
                 startActivity(intent);
             }
         });
@@ -77,7 +107,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),ListPerKebutuhan.class);
-                intent.putExtra("barang","buku");
+                intent.putExtra("barang","Buku");
                 startActivity(intent);
             }
         });
@@ -122,7 +152,7 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         produkRef = FirebaseDatabase.getInstance().getReference().child("berita");
 
@@ -195,7 +225,7 @@ public class HomeFragment extends Fragment {
             TextView judulberitatv = (TextView) view.findViewById(R.id.judulberita);
             judulberitatv.setText(judulberita);
             ImageView fotoberita = (ImageView) view.findViewById(R.id.urlphoto);
-            Picasso.get().load(urlPhoto).into(fotoberita);
+            Picasso.get().load(urlPhoto).placeholder(R.drawable.searchbarbg).into(fotoberita);
             TextView isiberitatv = (TextView) view.findViewById(R.id.isiberita);
             isiberitatv.setText(isiberita);
         }

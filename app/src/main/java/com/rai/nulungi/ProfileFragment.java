@@ -57,6 +57,7 @@ public class ProfileFragment extends Fragment {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getContext(),LandingPage.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -77,10 +78,16 @@ public class ProfileFragment extends Fragment {
                 TextView email = (TextView) view.findViewById(R.id.emailprofile);
                 TextView noktp = (TextView) view.findViewById(R.id.noktpprofile);
                 TextView nohp = (TextView) view.findViewById(R.id.nohpprofile);
+                TextView jeniskelamin = (TextView) view.findViewById(R.id.jeniskelaminprofil);
+                TextView alamat = (TextView) view.findViewById(R.id.alamatprofil);
+                TextView kota = (TextView) view.findViewById(R.id.kota);
                 nama.setText(profil.getNamaUser());
                 email.setText(profil.getEmailUser());
                 noktp.setText(profil.getNoKTP());
                 nohp.setText(profil.getNomorHP());
+                jeniskelamin.setText(profil.getJeniskelamin());
+                alamat.setText(profil.getAlamat());
+                kota.setText(profil.getKota());
 
             }
 

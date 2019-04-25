@@ -52,8 +52,8 @@
                 <TextView
                     android:id="@+id/alamat"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Jawa Timur" />
+                    android:layout_height="36dp"
+                    android:text="Jk sdkjsdkjsd sjskj kskj sdkjsdkj sdjksdk sdjksdkj sdkj kj sdkj sdkj ksdj  sdkj" />
 
             </LinearLayout>
         </RelativeLayout>

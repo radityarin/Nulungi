@@ -5,22 +5,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class ListPerKategoriPage extends AppCompatActivity {
 
     FirebaseRecyclerAdapter<Tempat,TempatViewHolder> tempatadapter;
+    String kategoritempat;
     DatabaseReference produkRef;
 
     @Override
@@ -28,7 +36,16 @@ public class ListPerKategoriPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_per_kategori_page);
 
-        String kategoriproduk = getIntent().getStringExtra("kategori");
+        Button btnBack = findViewById(R.id.backbutton);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ListPerKategoriPage.this, MainActivity.class));
+            }
+        });
+
+
+        kategoritempat = getIntent().getStringExtra("kategori");
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
@@ -36,7 +53,7 @@ public class ListPerKategoriPage extends AppCompatActivity {
 
         produkRef = FirebaseDatabase.getInstance().getReference().child("tempat");
 
-        Query query = produkRef.orderByChild("kategori").equalTo(kategoriproduk);
+        Query query = produkRef.orderByChild("kategori").equalTo(kategoritempat);
         FirebaseRecyclerOptions<Tempat> options =
                 new FirebaseRecyclerOptions.Builder<Tempat>()
                         .setQuery(query, Tempat.class)
@@ -58,8 +75,10 @@ public class ListPerKategoriPage extends AppCompatActivity {
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(ListPerKategoriPage.this,SumbangPage.class);
+                        Intent intent = new Intent(ListPerKategoriPage.this,TempatPage.class);
                         intent.putExtra("namatempat",model.getNama());
+                        intent.putExtra("urlfoto",model.getUrlfoto());
+                        intent.putExtra("notelepon",model.getNotelepon());
                         intent.putExtra("alamattempat",model.getAlamat());
                         startActivity(intent);
                     }
@@ -101,6 +120,5 @@ public class ListPerKategoriPage extends AppCompatActivity {
             TextView alamat = (TextView) view.findViewById(R.id.alamat);
             alamat.setText(alamatTempat);
         }
-
     }
 }

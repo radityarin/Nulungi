@@ -36,7 +36,7 @@ public class LoginPage extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginPage.this, MainActivity.class));
+                startActivity(new Intent(LoginPage.this, LandingPage.class));
             }
         });
 

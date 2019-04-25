@@ -45,7 +45,6 @@
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
         android:paddingHorizontal="16dp"
         android:gravity="bottom">
 
@@ -55,10 +54,10 @@
             android:layout_height="wrap_content"
             android:paddingVertical="16dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/buttonborder2"
+            android:background="@drawable/buttonsolid"
             android:text="Masuk"
             android:textAllCaps="false"
-            android:textColor="@color/bakalborder"
+            android:textColor="@android:color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -69,12 +68,13 @@
             android:layout_below="@id/buttonmasuk"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
-            android:background="@drawable/buttonsolid"
+            android:background="@drawable/buttonborder2"
             android:text="Daftar"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@android:color/white"
+            android:textColor="@color/bakalborder"
             android:textSize="18dp"
+            android:layout_marginBottom="32dp"
             android:textStyle="bold" />
 
 

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,15 +29,25 @@ public class ListPerKebutuhan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_per_kebutuhan);
 
-        String barang = getIntent().getStringExtra("barang");
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        Button btnBack = findViewById(R.id.backbutton);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ListPerKebutuhan.this, MainActivity.class));
+            }
+        });
+
+        final String barang = getIntent().getStringExtra("barang");
+        TextView title = findViewById(R.id.title);
+        title.setText(barang);
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         produkRef = FirebaseDatabase.getInstance().getReference().child("tempat");
-
-        Query query = produkRef.orderByChild("kebutuhan").equalTo(barang);
+        Query query = produkRef.orderByChild("kebutuhan").equalTo(barang.toLowerCase());
         FirebaseRecyclerOptions<Tempat> options =
                 new FirebaseRecyclerOptions.Builder<Tempat>()
                         .setQuery(query, Tempat.class)
@@ -59,6 +70,7 @@ public class ListPerKebutuhan extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(ListPerKebutuhan.this,SumbangPage.class);
+                        intent.putExtra("barang",barang);
                         intent.putExtra("namatempat",model.getNama());
                         intent.putExtra("alamattempat",model.getAlamat());
                         startActivity(intent);

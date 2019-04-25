@@ -9,14 +9,19 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LandingPage extends AppCompatActivity {
 
     Button masuk,daftar;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+
+        auth = FirebaseAuth.getInstance();
 
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 //            Window w = getWindow();
@@ -29,6 +34,7 @@ public class LandingPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LandingPage.this, LoginPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -38,7 +44,16 @@ public class LandingPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LandingPage.this, SignUpPage.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
+    }
+    protected void onStart() {
+        super.onStart();
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(LandingPage.this, MainActivity.class));
+            finish();
+        }
+        super.onResume();
     }
 }
