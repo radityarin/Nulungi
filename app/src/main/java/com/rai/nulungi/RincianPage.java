@@ -85,6 +85,7 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
         metode = getIntent().getStringExtra("metode");
         namatempat = getIntent().getStringExtra("namatempat");
         alamattempat = getIntent().getStringExtra("alamattempat");
+        kordinat = getIntent().getStringExtra("kordinat");
 
         tvnamabarang = findViewById(R.id.namabarang);
         tvmetode = findViewById(R.id.metodebarang);
@@ -143,8 +144,6 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
 
         imageStorage = FirebaseStorage.getInstance().getReference();
         auth = FirebaseAuth.getInstance();
-//        namatempat = "";
-//        alamattempat = "";
 
         uploadfotoproduk = (ImageView) findViewById(R.id.uploadfotoproduk);
         uploadfotoproduk.setOnClickListener(new View.OnClickListener() {

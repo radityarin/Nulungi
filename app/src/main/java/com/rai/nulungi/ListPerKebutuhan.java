@@ -73,6 +73,7 @@ public class ListPerKebutuhan extends AppCompatActivity {
                         intent.putExtra("barang",barang);
                         intent.putExtra("namatempat",model.getNama());
                         intent.putExtra("alamattempat",model.getAlamat());
+                        intent.putExtra("kordinat",model.getKordinat());
                         startActivity(intent);
                     }
                 });

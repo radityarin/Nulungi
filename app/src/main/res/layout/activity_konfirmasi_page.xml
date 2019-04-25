@@ -28,8 +28,8 @@
 
     <LinearLayout
         android:id="@+id/llantar"
-        android:visibility="invisible"
         android:layout_below="@id/statustitle"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -47,9 +47,21 @@
             android:textAlignment="center"
             android:layout_marginTop="32dp"
             android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jl Sumbersari no 20 Malang, Jawa Timur"/>
+
+        <Button
+            android:layout_marginTop="48dp"
+            android:background="@drawable/buttonborder"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Navigasi ke Lokasi"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/test"/>
     </LinearLayout>
 
     <LinearLayout
@@ -103,10 +115,6 @@
             android:text="Irfan Maulana Akbar" />
     </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:id="@+id/test"/>
     <Button
         android:id="@+id/selesaibutton"
         android:layout_width="match_parent"

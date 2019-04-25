@@ -19,6 +19,7 @@ public class SumbangPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sumbang_page);
         final String barang = getIntent().getStringExtra("barang");
+        final String kordinat = getIntent().getStringExtra("kordinat");
 
         Button btnBack = findViewById(R.id.backbutton);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +55,7 @@ public class SumbangPage extends AppCompatActivity {
                 intent.putExtra("metode",metode);
                 intent.putExtra("namatempat",namatempat);
                 intent.putExtra("alamattempat",alamattempat);
+                intent.putExtra("kordinat",kordinat);
                 startActivity(intent);
             }
         });
