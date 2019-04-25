@@ -17,7 +17,7 @@
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logonew" />
 
         <TextView
             android:layout_width="match_parent"

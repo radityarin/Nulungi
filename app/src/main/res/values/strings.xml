@@ -3,4 +3,22 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="kategori_barang">
+        <item>Pilih kategori</item>
+        <item>Furnitur</item>
+        <item>Pakaian</item>
+        <item>Elektronik</item>
+        <item>Buku</item>
+    </string-array>
+    <string name="bank">Pilih bank</string>
+    <string-array name="metode">
+        <item>Pilih metode</item>
+        <item>Jemput di rumah</item>
+        <item>Antar sendiri</item>
+    </string-array>
+    <string-array name="jeniskelamin">
+        <item>Pilih jenis kelamin</item>
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
 </resources>

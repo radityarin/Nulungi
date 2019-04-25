@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".ListPerKategoriPage">
+    tools:context=".ListPerKebutuhan">
 
     <LinearLayout
         android:layout_marginTop="4dp"
@@ -36,11 +36,11 @@
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/searchbarbg"
+        android:background="@drawable/buttonborder"
         android:drawableRight="@drawable/ic_search_grey_24dp"
         android:drawableTint="@color/colorPrimary"
-        android:paddingHorizontal="16dp"
-        android:hint="Cari tempat...."/>
+        android:paddingHorizontal="8dp"
+        android:hint="Cari tempat..."/>
 
 
 

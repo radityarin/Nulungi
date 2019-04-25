@@ -84,5 +84,12 @@ public class LoginPage extends AppCompatActivity {
         });
 
     }
+    protected void onResume() {
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(LoginPage.this, MainActivity.class));
+            finish();
+        }
+        super.onResume();
+    }
 
 }

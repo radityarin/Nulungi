@@ -18,17 +18,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 
-public class ListPerKategoriPage extends AppCompatActivity {
+public class ListPerKebutuhan extends AppCompatActivity {
 
-    FirebaseRecyclerAdapter<Tempat,TempatViewHolder> tempatadapter;
+    FirebaseRecyclerAdapter<Tempat,ListPerKebutuhan.TempatViewHolder> tempatadapter;
     DatabaseReference produkRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_per_kategori_page);
+        setContentView(R.layout.activity_list_per_kebutuhan);
 
-        String kategoriproduk = getIntent().getStringExtra("kategori");
+        String barang = getIntent().getStringExtra("barang");
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
@@ -36,29 +36,29 @@ public class ListPerKategoriPage extends AppCompatActivity {
 
         produkRef = FirebaseDatabase.getInstance().getReference().child("tempat");
 
-        Query query = produkRef.orderByChild("kategori").equalTo(kategoriproduk);
+        Query query = produkRef.orderByChild("kebutuhan").equalTo(barang);
         FirebaseRecyclerOptions<Tempat> options =
                 new FirebaseRecyclerOptions.Builder<Tempat>()
                         .setQuery(query, Tempat.class)
                         .build();
 
-        tempatadapter = new FirebaseRecyclerAdapter<Tempat, TempatViewHolder>(options) {
+        tempatadapter = new FirebaseRecyclerAdapter<Tempat, ListPerKebutuhan.TempatViewHolder>(options) {
             @Override
-            public TempatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            public ListPerKebutuhan.TempatViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 // Create a new instance of the ViewHolder, in this case we are using a custom
                 // layout called R.layout.message for each item
                 View view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.card_lokasi_horizontal, parent, false);
-                return new TempatViewHolder(view);
+                return new ListPerKebutuhan.TempatViewHolder(view);
             }
 
             @Override
-            protected void onBindViewHolder(TempatViewHolder holder, int position, final Tempat model) {
+            protected void onBindViewHolder(ListPerKebutuhan.TempatViewHolder holder, int position, final Tempat model) {
                 holder.display(model.getNama(), model.getUrlfoto(), model.getNotelepon(), model.getAlamat());
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(ListPerKategoriPage.this,SumbangPage.class);
+                        Intent intent = new Intent(ListPerKebutuhan.this,SumbangPage.class);
                         intent.putExtra("namatempat",model.getNama());
                         intent.putExtra("alamattempat",model.getAlamat());
                         startActivity(intent);

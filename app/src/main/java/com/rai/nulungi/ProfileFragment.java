@@ -3,6 +3,7 @@ package com.rai.nulungi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import static android.content.ContentValues.TAG;
 
 public class ProfileFragment extends Fragment {
 
@@ -56,6 +64,30 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 linearLayout_setting.setVisibility(View.INVISIBLE);
+            }
+        });
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Detail Pengguna").child(auth.getUid());
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Profil profil = dataSnapshot.getValue(Profil.class);
+                TextView nama = (TextView) view.findViewById(R.id.namaprofile);
+                TextView email = (TextView) view.findViewById(R.id.emailprofile);
+                TextView noktp = (TextView) view.findViewById(R.id.noktpprofile);
+                TextView nohp = (TextView) view.findViewById(R.id.nohpprofile);
+                nama.setText(profil.getNamaUser());
+                email.setText(profil.getEmailUser());
+                noktp.setText(profil.getNoKTP());
+                nohp.setText(profil.getNomorHP());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
         return view;

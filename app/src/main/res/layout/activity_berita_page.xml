@@ -22,14 +22,15 @@
                 android:id="@+id/backbutton"
                 android:layout_margin="10dp"
                 android:layout_width="40dp"
-                android:background="@drawable/ic_arrow_back_black_24dp"
+                android:background="@drawable/ic_chevron_left_black_24dp"
+                android:backgroundTint="@android:color/white"
                 android:layout_height="40dp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:id="@+id/urlgambarinformasi"
+                    android:id="@+id/urlberita"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:scaleType="centerCrop"
@@ -37,14 +38,14 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/trending_gradient_shape"/>.
+                    android:background="@drawable/trending_gradient_shape_2"/>.
 
             </FrameLayout>
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/judulinformasi"
+            android:id="@+id/judulberita"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -56,7 +57,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/isiinformasi"
+            android:id="@+id/isiberita"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"

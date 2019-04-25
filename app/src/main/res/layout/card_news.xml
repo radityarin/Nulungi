@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
-                android:id="@+id/urledukasi"
+                android:id="@+id/urlphoto"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:src="@drawable/testfotobencana"
@@ -28,20 +28,30 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/trending_gradient_shape_2" />
+                android:background="@drawable/trending_gradient_shape" />
 
         </FrameLayout>
         <TextView
-            android:id="@+id/judul"
+            android:layout_above="@id/isiberita"
+            android:id="@+id/judulberita"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="50dp"
             android:text="Lorem ipsum dolor sit amet"
             android:textSize="20dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:gravity="center_vertical"
-            android:paddingHorizontal="10dp"
-            android:layout_alignParentBottom="true"/>
+            android:paddingHorizontal="10dp"/>
+
+        <TextView
+            android:id="@+id/isiberita"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingHorizontal="8dp"
+            android:textColor="@android:color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:text="Isi berita"/>
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

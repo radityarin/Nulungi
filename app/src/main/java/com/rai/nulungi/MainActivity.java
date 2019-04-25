@@ -1,6 +1,7 @@
 package com.rai.nulungi;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
@@ -57,15 +58,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton sumbangButton = findViewById(R.id.buttonsambung);
+        final FloatingActionButton sumbangButton = findViewById(R.id.buttonsambung);
         sumbangButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                SumbangFragment sumbangFragment = new SumbangFragment();
-                fragmentTransaction.replace(R.id.main_frame, sumbangFragment, "Sumbang Fragment");
-                fragmentTransaction.commit();
-                setTitle("Sumbang Fragment");
+//                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//                SumbangFragment sumbangFragment = new SumbangFragment();
+//                fragmentTransaction.replace(R.id.main_frame, sumbangFragment, "Sumbang Fragment");
+//                fragmentTransaction.commit();
+//                setTitle("Sumbang Fragment");
+                Intent intent = new Intent(getApplicationContext(),SumbangPage.class);
+                startActivity(intent);
             }
         });
 

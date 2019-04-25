@@ -76,6 +76,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/btnfurnitur"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -95,6 +96,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/btnpakaian"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -114,6 +116,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/btnelektronik"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -133,6 +136,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/btnbuku"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -184,27 +188,14 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <HorizontalScrollView
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
-                    android:layout_marginHorizontal="8dp"
                     android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <include android:id="@+id/berita"
-                            layout="@layout/card_news" />
-
-                        <include layout="@layout/card_news" />
-
-                        <include layout="@layout/card_news" />
-
-                        <include layout="@layout/card_news" />
-
-                    </LinearLayout>
-                </HorizontalScrollView>
+                </android.support.v7.widget.RecyclerView>
 
             </LinearLayout>
 
@@ -252,6 +243,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/pantijompobutton"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -291,6 +283,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/komunitasbutton"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -310,6 +303,7 @@
                             android:orientation="vertical">
 
                             <ImageButton
+                                android:id="@+id/masjidbutton"
                                 android:layout_width="60dp"
                                 android:layout_height="60dp"
                                 android:layout_gravity="center"
@@ -363,7 +357,6 @@
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_marginHorizontal="8dp"
                     android:layout_height="match_parent">
 
                     <LinearLayout

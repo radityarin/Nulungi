@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp">
+
+    <ImageView
+        android:id="@+id/logokategori"
+        android:src="@drawable/book"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/namatempat"
+            android:text="Panti Asuhan A"
+            android:textSize="16dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tanggaldonasi"
+            android:text="Sabtu, 27 April 2019"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/statusdonasi"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_height="wrap_content"
+            android:textStyle="bold
+"
+            android:text="Proses penjemputan"/>
+    </LinearLayout>
+</LinearLayout>
