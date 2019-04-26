@@ -106,13 +106,13 @@ public class NotificationFragment extends Fragment {
 
         public void display(String kategoribarang,String namatempat, String tanggaldonasi, String statusdonasi){
             ImageView ivlogokategori = view.findViewById(R.id.logokategori);
-            if(kategoribarang.equals("Pakaian")){
+            if(kategoribarang.equals("pakaian")){
                 ivlogokategori.setImageResource(R.drawable.baju);
-            } else if(kategoribarang.equals("Elektronik")){
+            } else if(kategoribarang.equals("elektronik")){
                 ivlogokategori.setImageResource(R.drawable.elektronik);
-            } else if(kategoribarang.equals("Furnitur")){
+            } else if(kategoribarang.equals("furnitur")){
                 ivlogokategori.setImageResource(R.drawable.furniture);
-            } else if(kategoribarang.equals("Buku")){
+            } else if(kategoribarang.equals("buku")){
                 ivlogokategori.setImageResource(R.drawable.book);
             }
             TextView tvnamatempat = view.findViewById(R.id.namatempat);

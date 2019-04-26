@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment {
 
         final ArrayList<Tempat> listtempat = new ArrayList<>();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("tempat");
+        DatabaseReference myRef = database.getReference("Detail Tempat");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override

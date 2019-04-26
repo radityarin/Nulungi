@@ -27,7 +27,6 @@ public class SignUpPage extends AppCompatActivity {
     private EditText inputNama, inputEmail, inputNOKTP, inputPassword, inputNOHP,inputAlamat,inputKota;
     private Button btnDaftar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

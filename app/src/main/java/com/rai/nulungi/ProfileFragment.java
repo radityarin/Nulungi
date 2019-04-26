@@ -38,11 +38,8 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_profile, container, false);
         frameLayout_profilesettings = (FrameLayout) view.findViewById(R.id.main_frame);
-
         linearLayout_setting = (LinearLayout) view.findViewById(R.id.linearsettings);
-
         btnLogOut = (TextView) view.findViewById(R.id.btnLogOut);
-
         Button btnSetting = (Button) view.findViewById(R.id.buttonsetting);
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
