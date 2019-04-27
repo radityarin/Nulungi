@@ -29,7 +29,6 @@ public class HistoryFragment extends Fragment {
     DatabaseReference donasiRef;
     FirebaseAuth auth;
 
-
     public HistoryFragment() {
     }
 
@@ -47,7 +46,6 @@ public class HistoryFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         donasiRef = FirebaseDatabase.getInstance().getReference().child("List Barang Donasi");
-
         Query query = donasiRef.orderByChild("iddonatur").equalTo(auth.getUid());
         FirebaseRecyclerOptions<Donasi> options =
                 new FirebaseRecyclerOptions.Builder<Donasi>()
@@ -67,7 +65,7 @@ public class HistoryFragment extends Fragment {
 
             @Override
             protected void onBindViewHolder(HistoryFragment.DonasiViewHolder holder, int position, final Donasi model) {
-                holder.display(model.getKategori(), model.getNama(), model.getTgldonasi(),model.getStatusdonasi());
+                holder.display(model.getKategori(), model.getTujuan(), model.getTgldonasi(),model.getStatusdonasi());
 //                holder.view.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View view) {
@@ -83,8 +81,6 @@ public class HistoryFragment extends Fragment {
             }
         };
         recyclerView.setAdapter(donasiadapter);
-
-
         return view;
     }
     @Override

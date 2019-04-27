@@ -30,11 +30,14 @@ public class ListPerKategoriPage extends AppCompatActivity {
     FirebaseRecyclerAdapter<Tempat,TempatViewHolder> tempatadapter;
     String kategoritempat;
     DatabaseReference produkRef;
+    TextView titleperkategori;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_per_kategori_page);
+
+        titleperkategori = findViewById(R.id.titleperkategori);
 
         Button btnBack = findViewById(R.id.backbutton);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -44,14 +47,14 @@ public class ListPerKategoriPage extends AppCompatActivity {
             }
         });
 
-
         kategoritempat = getIntent().getStringExtra("kategori");
+        titleperkategori.setText(kategoritempat);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        produkRef = FirebaseDatabase.getInstance().getReference().child("tempat");
+        produkRef = FirebaseDatabase.getInstance().getReference().child("Detail Tempat");
 
         Query query = produkRef.orderByChild("kategori").equalTo(kategoritempat);
         FirebaseRecyclerOptions<Tempat> options =
@@ -75,11 +78,19 @@ public class ListPerKategoriPage extends AppCompatActivity {
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(ListPerKategoriPage.this,TempatPage.class);
+//                        Intent intent = new Intent(ListPerKategoriPage.this,TempatPage.class);
+//                        intent.putExtra("namatempat",model.getNama());
+//                        intent.putExtra("urlfoto",model.getUrlfoto());
+//                        intent.putExtra("notelepon",model.getNotelepon());
+//                        intent.putExtra("alamattempat",model.getAlamat());
+//                        intent.putExtra("idtempat",model.getIduser());
+//                        startActivity(intent);
+                        Intent intent = new Intent(ListPerKategoriPage.this,SumbangPage.class);
+//                        intent.putExtra("barang",barang);
                         intent.putExtra("namatempat",model.getNama());
-                        intent.putExtra("urlfoto",model.getUrlfoto());
-                        intent.putExtra("notelepon",model.getNotelepon());
                         intent.putExtra("alamattempat",model.getAlamat());
+                        intent.putExtra("kordinat",model.getKordinat());
+                        intent.putExtra("idtempat",model.getIduser());
                         startActivity(intent);
                     }
                 });

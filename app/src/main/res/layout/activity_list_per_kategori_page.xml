@@ -23,6 +23,7 @@
             android:backgroundTint="@color/colorPrimary" />
 
         <TextView
+            android:id="@+id/titleperkategori"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/colorPrimary"

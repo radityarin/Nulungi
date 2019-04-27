@@ -2,108 +2,131 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SumbangPage">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="16dp">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/backbutton"
-            android:layout_width="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_height="40dp"
-            android:background="@drawable/ic_chevron_left_black_24dp"
-            android:backgroundTint="@color/colorPrimary"/>
-
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="374dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:text="Nulungi"
-            android:textColor="@android:color/black"
-            android:textSize="40dp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:layout_below="@id/title"
-            android:id="@+id/gambar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:src="@drawable/gambar01" />
-
-        <TextView
-            android:id="@+id/titlenamabarang"
-            android:layout_below="@id/gambar"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nama Barang"/>
-
-        <EditText
-            android:id="@+id/namabarang"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/titlenamabarang"
-            android:hint="Masukan nama barang" />
-
-        <TextView
-            android:id="@+id/titlepiliihkategori"
-            android:layout_below="@id/namabarang"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kategori Barang"/>
-
-        <Spinner
-            android:id="@+id/inputkategori"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/titlepiliihkategori"
-            android:layout_marginTop="8dp"
-            android:entries="@array/kategori_barang"/>
-
-        <TextView
-            android:id="@+id/titlemetode"
-            android:layout_below="@id/inputkategori"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Metode donasi"/>
-
-        <Spinner
-            android:id="@+id/inputmetode"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/titlemetode"
-            android:layout_marginTop="8dp"
-            android:entries="@array/metode"/>
-
-
-        <Button
-            android:id="@+id/nulungbutton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/buttonsolid"
-            android:text="Nulung"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="24dp" />
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/backbutton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_chevron_left_black_24dp"
+                android:backgroundTint="@color/colorPrimary" />
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="374dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:text="Nulungi"
+                android:textColor="@android:color/black"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/gambar"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@id/title"
+                android:src="@drawable/gambar01" />
+
+            <TextView
+                android:id="@+id/titlenamadonatur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/gambar"
+                android:text="Nama Donatur"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/namadonatur"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/titlenamadonatur"
+                android:hint="Masukan nama donatur" />
+
+            <TextView
+                android:id="@+id/titlenamabarang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namadonatur"
+                android:text="Nama Barang"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/namabarang"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/titlenamabarang"
+                android:hint="Masukan nama barang" />
+
+            <TextView
+                android:id="@+id/titlepiliihkategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/namabarang"
+                android:text="Kategori Barang"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/inputkategori"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/titlepiliihkategori"
+                android:layout_marginTop="8dp"
+                android:entries="@array/kategori_barang" />
+
+            <TextView
+                android:id="@+id/titlemetode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/inputkategori"
+                android:text="Metode donasi"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/inputmetode"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/titlemetode"
+                android:layout_marginTop="8dp"
+                android:entries="@array/metode" />
+
+
+            <Button
+                android:id="@+id/nulungbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/buttonsolid"
+                android:text="Nulung"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="24dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

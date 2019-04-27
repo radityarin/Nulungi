@@ -2,13 +2,13 @@ package com.rai.nulungi;
 
 public class Donasi {
 
-    private String idbarang, nama,kategori,metode,tujuan, urlbarang,tgldonasi,statusdonasi, iddonatur;
+    private String idbarang, nama,kategori,metode,tujuan, urlbarang,tgldonasi,statusdonasi, iddonatur, idpenerima,namadonatur;
 
     public Donasi(){
 
     }
 
-    public Donasi(String idbarang, String nama, String kategori, String metode, String tujuan, String urlbarang, String tgldonasi, String statusdonasi, String iddonatur) {
+    public Donasi(String idbarang, String nama, String kategori, String metode, String tujuan, String urlbarang, String tgldonasi, String statusdonasi, String iddonatur, String idpenerima, String namadonatur) {
         this.idbarang = idbarang;
         this.nama = nama;
         this.kategori = kategori;
@@ -18,10 +18,8 @@ public class Donasi {
         this.tgldonasi = tgldonasi;
         this.statusdonasi = statusdonasi;
         this.iddonatur = iddonatur;
-    }
-
-    public void setStatusdonasi(String statusdonasi) {
-        this.statusdonasi = statusdonasi;
+        this.idpenerima = idpenerima;
+        this.namadonatur = namadonatur;
     }
 
     public String getIdbarang() {
@@ -58,5 +56,13 @@ public class Donasi {
 
     public String getIddonatur() {
         return iddonatur;
+    }
+
+    public String getIdpenerima() {
+        return idpenerima;
+    }
+
+    public String getNamadonatur() {
+        return namadonatur;
     }
 }

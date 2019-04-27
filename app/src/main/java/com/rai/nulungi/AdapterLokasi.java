@@ -48,6 +48,7 @@ public class AdapterLokasi extends RecyclerView.Adapter<AdapterLokasi.ViewHolder
                 intent.putExtra("urlfoto",listlokasi.get(position).getUrlfoto());
                 intent.putExtra("notelepon",listlokasi.get(position).getNotelepon());
                 intent.putExtra("alamattempat",listlokasi.get(position).getAlamat());
+                intent.putExtra("kebutuhan",listlokasi.get(position).getKebutuhan());
                 context.startActivity(intent);
             }
         });

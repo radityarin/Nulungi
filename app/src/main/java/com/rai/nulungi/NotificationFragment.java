@@ -63,7 +63,7 @@ public class NotificationFragment extends Fragment {
 
             @Override
             protected void onBindViewHolder(NotificationFragment.DonasiViewHolder holder, int position, final Donasi model) {
-                holder.display(model.getKategori(), model.getNama(), model.getTgldonasi(),model.getStatusdonasi());
+                holder.display(model.getKategori(), model.getTujuan(), model.getTgldonasi(),model.getStatusdonasi());
 //                holder.view.setOnClickListener(new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(View view) {
@@ -106,13 +106,13 @@ public class NotificationFragment extends Fragment {
 
         public void display(String kategoribarang,String namatempat, String tanggaldonasi, String statusdonasi){
             ImageView ivlogokategori = view.findViewById(R.id.logokategori);
-            if(kategoribarang.equals("pakaian")){
+            if(kategoribarang.equals("Pakaian")){
                 ivlogokategori.setImageResource(R.drawable.baju);
-            } else if(kategoribarang.equals("elektronik")){
+            } else if(kategoribarang.equals("Elektronik")){
                 ivlogokategori.setImageResource(R.drawable.elektronik);
-            } else if(kategoribarang.equals("furnitur")){
+            } else if(kategoribarang.equals("Furnitur")){
                 ivlogokategori.setImageResource(R.drawable.furniture);
-            } else if(kategoribarang.equals("buku")){
+            } else if(kategoribarang.equals("Buku")){
                 ivlogokategori.setImageResource(R.drawable.book);
             }
             TextView tvnamatempat = view.findViewById(R.id.namatempat);

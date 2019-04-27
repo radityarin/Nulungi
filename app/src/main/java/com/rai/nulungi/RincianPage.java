@@ -45,10 +45,9 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
     private Button btnkonfirmasi;
 
     private final int PICK_IMAGE_REQUEST = 1;
-    private String nama,kategori,metode,urlbarang,namatempat,alamattempat,kordinat;
+    private String nama,kategori,metode,urlbarang,namatempat,alamattempat,kordinat,idtempat, namadonatur;
     String tanggaldonasi ="";
     private ImageView uploadfotoproduk;
-    private int jumlah=0;
     private FirebaseAuth auth;
     private TextView tvnamabarang,tvmetode, tvnamatempat,tvalamattempat;
     private StorageReference imageStorage;
@@ -59,14 +58,8 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rincian_page);
 
-        final ArrayList<Tempat> listtempat = new ArrayList<>();
-
         FirebaseDatabase database1 = FirebaseDatabase.getInstance();
         DatabaseReference myRef1 = database1.getReference("tempat");
-
-
-//        String angka = tvnitip.getText().toString();
-//        jumlah = Integer.parseInt(tvnitip.getText().toString());
 
         Button btnBack = findViewById(R.id.backbutton);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +72,7 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
         namatempat="";
         alamattempat="";
         kordinat="";
+        idtempat="";
 
         nama = getIntent().getStringExtra("nama");
         kategori = getIntent().getStringExtra("kategori");
@@ -86,6 +80,8 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
         namatempat = getIntent().getStringExtra("namatempat");
         alamattempat = getIntent().getStringExtra("alamattempat");
         kordinat = getIntent().getStringExtra("kordinat");
+        idtempat = getIntent().getStringExtra("idtempat");
+        namadonatur = getIntent().getStringExtra("namadonatur");
 
         tvnamabarang = findViewById(R.id.namabarang);
         tvmetode = findViewById(R.id.metodebarang);
@@ -123,6 +119,7 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
                             tvalamattempat.setText(tempat.getAlamat());
                             namatempat = tempat.getNama();
                             kordinat = tempat.getKordinat();
+                            idtempat = tempat.getIduser();
                         }
 
                         @Override
@@ -206,7 +203,7 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
                                 DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
                                 String key = myRef.push().getKey();
 
-                                Donasi donasi = new Donasi(key,nama,kategori,metode,namatempat,urlbarang,tanggaldonasi,"Sedang diproses",auth.getUid());
+                                Donasi donasi = new Donasi(key,nama,kategori,metode,namatempat,urlbarang,tanggaldonasi,"Sedang diproses",auth.getUid(),idtempat,namadonatur);
                                 myRef.child("List Barang Donasi").child(key).setValue(donasi).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

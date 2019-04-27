@@ -23,6 +23,7 @@ public class ListPerKebutuhan extends AppCompatActivity {
 
     FirebaseRecyclerAdapter<Tempat,ListPerKebutuhan.TempatViewHolder> tempatadapter;
     DatabaseReference produkRef;
+    String barang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,8 @@ public class ListPerKebutuhan extends AppCompatActivity {
             }
         });
 
-        final String barang = getIntent().getStringExtra("barang");
+        barang = "";
+        barang = getIntent().getStringExtra("barang");
         TextView title = findViewById(R.id.title);
         title.setText(barang);
 
@@ -46,8 +48,8 @@ public class ListPerKebutuhan extends AppCompatActivity {
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        produkRef = FirebaseDatabase.getInstance().getReference().child("tempat");
-        Query query = produkRef.orderByChild("kebutuhan").equalTo(barang.toLowerCase());
+        produkRef = FirebaseDatabase.getInstance().getReference().child("Detail Tempat");
+        Query query = produkRef.orderByChild("kebutuhan").equalTo(barang);
         FirebaseRecyclerOptions<Tempat> options =
                 new FirebaseRecyclerOptions.Builder<Tempat>()
                         .setQuery(query, Tempat.class)
@@ -74,6 +76,7 @@ public class ListPerKebutuhan extends AppCompatActivity {
                         intent.putExtra("namatempat",model.getNama());
                         intent.putExtra("alamattempat",model.getAlamat());
                         intent.putExtra("kordinat",model.getKordinat());
+                        intent.putExtra("idtempat",model.getIduser());
                         startActivity(intent);
                     }
                 });
