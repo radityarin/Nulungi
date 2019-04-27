@@ -214,7 +214,7 @@ public class RincianPage extends AppCompatActivity implements DatePickerDialog.O
                                             intent.putExtra("metode",metode);
                                             intent.putExtra("alamat",alamattempat);
                                             intent.putExtra("kordinat",kordinat);
-                                            intent.putExtra("tanggal",tanggaldonasi);
+                                            intent.putExtra("tanggaldonasi",tanggaldonasi);
                                             startActivity(intent);
                                             finish();
                                         } else {

@@ -1,5 +1,6 @@
 package com.rai.nulungi;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,7 @@ public class LoginPage extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     private Button btnMasuk, btnBack;
+    private ProgressDialog PD;
 
 //    Button login;
 
@@ -50,7 +52,11 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View view) {
                 final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
-
+                PD = new ProgressDialog(LoginPage.this);
+                PD.setMessage("Loading...");
+                PD.setCancelable(true);
+                PD.setCanceledOnTouchOutside(false);
+                PD.show();
                 try {
 
                     if (password.length() > 0 && email.length() > 0) {
@@ -59,9 +65,10 @@ public class LoginPage extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
+                                            PD.dismiss();
                                             // Sign in success, update UI with the signed-in user's information
                                             FirebaseUser user = auth.getCurrentUser();
-                                            Toast.makeText(LoginPage.this, "BERHASIL", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginPage.this, "Berhasil", Toast.LENGTH_SHORT).show();
                                             final FirebaseAuth auth = FirebaseAuth.getInstance();
                                             Intent i = new Intent(LoginPage.this, MainActivity.class);
                                             startActivity(i);

@@ -43,12 +43,14 @@ public class KonfirmasiPage extends AppCompatActivity {
         llantar = findViewById(R.id.llantar);
         String metode = getIntent().getStringExtra("metode");
         alamat = getIntent().getStringExtra("alamat");
+        String tanggaldonasi = getIntent().getStringExtra("tanggaldonasi");
+        TextView tglpenjemputan = findViewById(R.id.tanggalpenjemputan);
+
         kordinat = getIntent().getStringExtra("kordinat");
         if (metode.equals("Jemput di rumah")) {
             lljemput.setVisibility(View.VISIBLE);
-            String tanggaldonasi = getIntent().getStringExtra("tanggaldonasi");
-            TextView tglpenjemputan = findViewById(R.id.tanggalpenjemputan);
             tglpenjemputan.setText(tanggaldonasi);
+            alamattempat.setText(alamat);
         } else {
             Button test = findViewById(R.id.test);
             test.setOnClickListener(new View.OnClickListener() {
